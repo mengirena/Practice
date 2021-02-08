@@ -1,11 +1,15 @@
 function Stopwatch(){
     let startflag = 0;
+    let resetOn = 0;
     let startTime, endTime;
+    let duration = 0;
     const calculateDuration = function(){
-        return (endTime-startTime)/1000;  
+        duration += (endTime-startTime)/1000
+        return duration;  
     }
     
     this.start = function(){
+        resetOn = 0;
         if (startflag === 1){
             throw new Error("Stopwatch has already started!")
         }else{
@@ -25,18 +29,17 @@ function Stopwatch(){
     };
 
     this.reset = function(){
-        this.duration = 0;
+        if(startTime && endTime ) resetOn = 1;
+        duration, startTime, endTime= 0;
     };
 
 
     Object.defineProperty(this,'duration',{
         get: function(){
-            typeof startTime
-            if (startTime && endTime){
+            if (startTime && endTime && resetOn == 0){
                 return calculateDuration()
-            }else if(startTime){
-                throw new Error("Timer is on-going!")
             }else{
+                resetOn = 0;
                 return 0
             }
         }
