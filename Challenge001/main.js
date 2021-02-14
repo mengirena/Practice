@@ -3,15 +3,20 @@ Write a function dirReduc which will take an array of strings and returns an arr
 */
 
 function dirReduc(arr){
-    let valueForDir = [1,-1,1,-1];
-    [Nrepeat,Wrepeat] = arr.reduce((sum,current)=>{
-        let index = arr.indexOf(current);
-        if (index === 0 || index === 1){
-            sum[0] += valueForDir[index];
-        } else{
-            sum[1] += valueForDir[index]
-        }
-        
-    },[0,0])
+    let len = arr.length;
+    let note = ["NORTH", "WEST", "EAST", "SOUTH"];
+    if (len >= 2){
+        let checker = 0;
+        do {
+            if(note.indexOf(arr[checker])+ note.indexOf(arr[checker+1]) === 3){
+                arr.splice(checker,2);
+                if (checker !== 0 ){checker--}
+            } else{
+                checker++;
+            }       
+        } while (arr.length>=checker+2);
+    }
+    return arr    
+}
 
-}s
+console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]))
