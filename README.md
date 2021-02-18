@@ -17,3 +17,8 @@ Create property, Build start method
 
 ## Challenge03 - 02/16/21
 
+* `slice(startIndex, endIndex)` array method can be used to copy and pasted wanted elements to a new array.
+
+## Challenge04 - 02/17/21
+
+* Need to **return** the accumulated result while using the `reduce()` array method. 
