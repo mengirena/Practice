@@ -12,6 +12,7 @@ For example:
  persistence(4) === 0 // because 4 is already a one-digit number
 */
 
+/* recursive
 function persistence(num) {
     let quotient, remainder, step = 0;
     quotient = Math.floor(num/10);
@@ -19,7 +20,7 @@ function persistence(num) {
     if (quotient === 0){
         return 0
     }else if (quotient<=9){
-        remainder *= quotient
+        remainder *= quotient;
     }else{
         while(quotient>9){
             remainder *= quotient%10
@@ -32,3 +33,20 @@ function persistence(num) {
     return step + persistence(remainder)
 }
 console.log(persistence(39))
+*/
+
+function persistence(num) {
+    let step = 0;
+    let numString = num.toString();
+    let stringArray = numString.split("")
+    while(stringArray.length > 1){
+        mul = stringArray.reduce((sum,current)=>{
+            sum = Number(current)*sum;
+            return sum
+        },1)
+        step++
+        stringArray = mul.toString().split("")
+    }
+    return step
+}
+console.log(persistence(999))
