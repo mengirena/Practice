@@ -12,7 +12,10 @@ For example:
  persistence(4) === 0 // because 4 is already a one-digit number
 */
 
-/* recursive
+/* 
+//recursive 
+//time: 785 ms
+
 function persistence(num) {
     let quotient, remainder, step = 0;
     quotient = Math.floor(num/10);
@@ -35,6 +38,9 @@ function persistence(num) {
 console.log(persistence(39))
 */
 
+
+//string method
+//time:758 ms
 function persistence(num) {
     let step = 0;
     let numString = num.toString();
