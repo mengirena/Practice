@@ -13,4 +13,7 @@ Create property, Build start method
 
 ## Challenge02 - 02/15/21
 
-* Returning function with an unknown parameter can hold value before evaluation.
+* Returning function with an unassigned parameter can be held until the parameter is assigned.
+
+## Challenge03 - 02/16/21
+
