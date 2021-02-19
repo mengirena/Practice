@@ -22,3 +22,12 @@ Create property, Build start method
 ## Challenge04 - 02/17/21
 
 * Need to **return** the accumulated result while using the `reduce()` array method. 
+
+## Challenge05 - 02/18/21, 02/19/21
+
+```
+for (let i=0; i<n; i++){
+ //code
+}
+``` 
+* If the variable `n` used in the `for` loop is changed in the loop, it will affect when the loop will end.
