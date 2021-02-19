@@ -37,23 +37,13 @@ EX:
 */
 
 
-function primeFactors(n){
-    let str = ""    
-    let primeRecord = getPrimes(n).split(".").reduce((stack,current)=>{
-        if(!stack[current]){stack[current]=0}
-        stack[current]++
-        return stack
-    },{})
-
-    for (let key in primeRecord){
-        if (primeRecord[key] <2){
-            str += "("+key+")"
-        }else{
-            str += "("+key+"**"+primeRecord[key]+")"
-        }
-    }
-    return str
-    
+function primeFactors(n){  
+    let sorted = getPrimes(n).split(".").sort((a,b)=>a-b)
+    let unique = sorted.filter((item,i,array)=>array.indexOf(item)===i)
+    return unique.reduce((str,current,i)=>{
+        let len = sorted.filter(item=>item==current).length
+        return (len===1)? `${str}(${current})`:`${str}(${current}**${len})`
+    },"")
 }
 
 
@@ -74,4 +64,4 @@ function getPrimes(n){
     }
 }
 
-console.log(primeFactors(7775460)) 
+console.log(primeFactors(7775460)) //"(2**2)(3**3)(5)(7)(11**2)(17)"
