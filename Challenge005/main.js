@@ -44,7 +44,6 @@ function primeFactors(n){
         stack[current]++
         return stack
     },{})
-    console.log(primeRecord)
 
     for (let key in primeRecord){
         if (primeRecord[key] <2){
@@ -71,8 +70,8 @@ function getPrimes(n){
     if (quotient === n){
         return `${quotient}`
     }else{
-        return `${getPrimes(count)}.${getPrimes(quotient)}` 
+        return `${getPrimes(n-count)}.${getPrimes(quotient)}` 
     }
 }
 
-console.log(primeFactors(240)) //(2**15)(3**4)(5**3)(7)(11**2)(17)
+console.log(primeFactors(7775460)) 
