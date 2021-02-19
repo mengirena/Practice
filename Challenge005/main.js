@@ -65,14 +65,4 @@ function getPrimes(n){
 }
 
 
-console.log(primeFactorsFast(12)) //7775460"(2**2)(3**3)(5)(7)(11**2)(17)" 
-
-function primeFactorsFast(n){
-    for (var i=2, res="", f; i <= n; i++) {
-     console.log(i)
-      f=0;
-      while (n%i == 0) { f++; n/=i }
-      res += f ? "(" + ( f>1 ? i+"**"+f  : i ) +")" : ""
-    }
-    return res || "("+n+")"
-  }
+console.log(primeFactors(12)) //7775460"(2**2)(3**3)(5)(7)(11**2)(17)" 
