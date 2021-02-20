@@ -31,3 +31,4 @@ for (let i=0; i<n; i++){
 }
 ``` 
 * If the variable `n` used in the `for` loop is changed in the loop, it will affect when the loop will end.
+

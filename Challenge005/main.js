@@ -53,8 +53,7 @@ function primeFactors(n){
         }
     }
     return str
-    
-}
+   
 
 
 function getPrimes(n){
