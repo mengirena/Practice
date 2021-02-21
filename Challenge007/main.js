@@ -18,10 +18,13 @@ Examples
 
 function generateHashtag (str) {
     let splitedStr = str.split(" ");
-    console.log(splitedStr)
-    if(splitedStr.length>=1){
-        return `#${splitedStr.map(item=>item[0].toUpperCase() + item.slice(1)).join("")}`
-    }else{return false}
-}
-console.log(generateHashtag("Do We have A Hashtag"))
-console.log(generateHashtag(" ".repeat(200)))
+    let hashtagStr, criteria;
+    [hashtagStr, criteria] =splitedStr.reduce((sum,item)=>{
+      if (item !== ""){
+        sum[1] += item.length;
+        sum[0] += item[0].toUpperCase() + item.slice(1);
+      }
+      return sum
+    },["",0])
+    return (criteria>=140||hashtagStr==="")? false: `#${hashtagStr}`
+  }
