@@ -17,8 +17,11 @@ Examples
 */
 
 function generateHashtag (str) {
-    //empty string return false
-    //remove space
-    //check string length
-    //
+    let splitedStr = str.split(" ");
+    console.log(splitedStr)
+    if(splitedStr.length>=1){
+        return `#${splitedStr.map(item=>item[0].toUpperCase() + item.slice(1)).join("")}`
+    }else{return false}
 }
+console.log(generateHashtag("Do We have A Hashtag"))
+console.log(generateHashtag(" ".repeat(200)))
