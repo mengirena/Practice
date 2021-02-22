@@ -37,3 +37,25 @@ function Stopwatch(){
         }
     })
 }
+
+function Calculator(){
+    this.val1=0
+    this.val2=0
+    this.read = ()=>{
+        this.val1=prompt("insert v1")
+        this.val2=prompt("insert v2")
+    }
+    this.sum=()=>{
+        return Number(this.val1)+Number(this.val2)
+    }
+    this.mul=()=>{
+        return this.val1*this.val2
+    }
+}
+
+function Accumulator(startingValue){
+    this.value = startingValue
+    this.read = ()=>{
+        this.value += +prompt("insert")
+    }
+}
