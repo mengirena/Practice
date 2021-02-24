@@ -14,21 +14,26 @@ solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20
 function solution(list){
     let copyList = list.slice();
     copyList.shift();
-    let flag, str="";
-    for (let i =0; i<copyList.length; i++){
+    let flag = list[1]-list[0], str = "";
+    let flag2 = []
+    for (let i =0; i<=copyList.length; i++){
         let dif = copyList[i]-list[i]
         if (dif === flag && dif !== 1){
             str += list[i].toString() + ","
+            flag2[i] = true
         }else if(dif !== flag && dif === 1){
-            str += list[i].toString() + "-"
+            str += list[i].toString()
+            flag2[i] = false
+        }else if (dif !== flag && dif !== 1 && flag2[i-1]===false){
+            str += "," + list[i].toString() + ","
+            flag2[i] = false
         }else if(dif !== flag && dif !== 1){
-            str += list[i].toString() + ","
+            str += "-" + list[i].toString() + ","
+            flag2[i] = false
         }
-        if (i === copyList.length-1){str += copyList[i].toString()}
-    
         flag = dif
     }
-    return str
+    return str.slice(0,str.length-1)
 }
 
 //solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20])
