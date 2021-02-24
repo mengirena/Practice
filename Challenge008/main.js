@@ -14,31 +14,32 @@ solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20
 function solution(list){
     let copyList = list.slice();
     copyList.shift();
-    let flag = list[1]-list[0], str = "";
-    let flag2 = []
-    for (let i =0; i<=copyList.length; i++){
+    let str = "";
+    let flag = -1;
+    let flag2 = false;
+    for (let i =0; i<list.length; i++){
         let dif = copyList[i]-list[i]
-        if (dif === flag && dif !== 1){
-            str += list[i].toString() + ","
-            flag2[i] = true
-        }else if(dif !== flag && dif === 1){
-            str += list[i].toString()
-            flag2[i] = false
-        }else if (dif !== flag && dif !== 1 && flag2[i-1]===false){
-            str += "," + list[i].toString() + ","
-            flag2[i] = false
-        }else if(dif !== flag && dif !== 1){
-            str += "-" + list[i].toString() + ","
-            flag2[i] = false
+        if(dif !== 1 && dif !== flag && flag2 !== (dif===flag)){
+            str += "-" + list[i]
+        }else if(dif !== 1 && dif !== flag && flag2 === (dif===flag)){
+            str += ","+list[i]
+        }else if(dif !== 1 && (dif !== flag)){
+            str += "!"+list[i]
+        }else if(dif === 1 && (dif !== flag)){
+            str += ","+list[i]
+        } else if(dif !== 1){
+            str += ","+list[i]
         }
-        flag = dif
+        
+        flag2=dif===flag  
+        flag=dif;    
     }
-    return str.slice(0,str.length-1)
+    return str.slice(1)
 }
 
 //solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20])
 //           [ 3,  1,  1,  1, 1, 2, 1, 1, 2, 1, 1, 1,  1,  3,  1,  2,  1,  1,  1]
 //         [-3, -2, -1,  0, 1, 3, 4, 5, 7, 8, 9,10, 11, 14, 15, 17, 18, 19, 20]
-console.log(solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]))
+console.log(solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 20, 21, 22, 24]))
 //       [-3, -2, -1,  0, 1, 3, 4, 5]
 //       [3,  1,   1,  1, 1, 2, 1, 1]
