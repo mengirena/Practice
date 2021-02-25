@@ -12,34 +12,42 @@ solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20
 */
 
 function solution(list){
+    let str = "";
+    let flag1 = selfDiff(list);
+    let flag2 = selfDiff(flag1);
+    let counter = 0;
+    while(counter < list.length){
+        if(flag2[counter] === 0 && flag1[counter] === 1){
+            if(flag1[counter-1]!= 1){
+                str += list[counter] + "-";
+                counter += 2
+            }else{
+                counter += 2
+            }
+        }else if (flag2[counter] === undefined && flag1[counter] !== undefined){
+            if(flag1[counter] === 1 && flag1[counter-1] === 1){
+                counter ++
+            }else{
+                str += list[counter] + ",";
+                counter ++ 
+            }
+        }else{
+            str += list[counter] + ",";
+            counter++
+        }
+    }
+    return str.slice(0,str.length-1)
+}
+function selfDiff(list){
     let copyList = list.slice();
     copyList.shift();
-    let str = "";
-    let flag = -1;
-    let flag2 = false;
-    for (let i =0; i<list.length; i++){
-        let dif = copyList[i]-list[i]
-        if(dif !== 1 && dif !== flag && flag2 !== (dif===flag)){
-            str += "-" + list[i]
-        }else if(dif !== 1 && dif !== flag && flag2 === (dif===flag)){
-            str += ","+list[i]
-        }else if(dif !== 1 && (dif !== flag)){
-            str += "!"+list[i]
-        }else if(dif === 1 && (dif !== flag)){
-            str += ","+list[i]
-        } else if(dif !== 1){
-            str += ","+list[i]
-        }
-        
-        flag2=dif===flag  
-        flag=dif;    
+    let result = [];
+    for (let i = 0; i <copyList.length; i++){
+        result.push(copyList[i]-list[i])
     }
-    return str.slice(1)
+    return result
 }
-
 //solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20])
-//           [ 3,  1,  1,  1, 1, 2, 1, 1, 2, 1, 1, 1,  1,  3,  1,  2,  1,  1,  1]
-//         [-3, -2, -1,  0, 1, 3, 4, 5, 7, 8, 9,10, 11, 14, 15, 17, 18, 19, 20]
-console.log(solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 20, 21, 22, 24]))
-//       [-3, -2, -1,  0, 1, 3, 4, 5]
-//       [3,  1,   1,  1, 1, 2, 1, 1]
+console.log(solution([-60,-58,-57,-56,-55,-54,-53,-50]))
+//'-77,-74,-73,-70,-67,-66,-63,-60,-58--53,-50,-47,-45,-43--41,-39,-37--35,-32,-29,-27,-25,-24'
+//'-77,-74,-73,-70,-67,-66,-63,-60,-58--54,-53,-50,-47,-45,-43--41,-39,-37--35,-32,-29,-27,-25,-24'
