@@ -32,8 +32,13 @@ function solution(list){
                 counter ++ 
             }
         }else{
-            str += list[counter] + ",";
-            counter++
+            if (flag1[counter] === 1 && flag1[counter-1] ===1 && flag2[counter-1] === 0){
+                counter++
+            }else{
+                str += list[counter] + ",";
+                counter++
+            }
+            
         }
     }
     return str.slice(0,str.length-1)
