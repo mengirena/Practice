@@ -32,3 +32,21 @@ for (let i=0; i<n; i++){
 ``` 
 * If the variable `n` used in the `for` loop is changed in the loop, it will affect when the loop will end.
 
+## Challenge 06 -
+
+## Challenge 07 -
+
+## Challenge 08 - 
+
+##
+
+## Tic-Toc-Toe project - 02/25/21
+
+* inline width collapses if there's no content
+
+* vertical-align affects inline only
+
+* can't call method in the event listenter because `this` would be the event. Instead, creating a function with two variables (the first one is the event and the second one is the object) would work.
+```
+function(e,obj=newBoard){obj.markChoice(e)}
+```
