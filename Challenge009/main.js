@@ -32,16 +32,24 @@ For those who don't know the game, here are some information about rules and how
 */
 
 function doneOrNot(board){
-    let num = board.length[0].length
     for (let i = 0; i < board.length; i++) {
         let sumOfRow =board[i].reduce((sum, current)=>{
             sum += current
             return sum
         }, 0)
-        if (sumOfRow != 45) {
+        let sumOfCol = board.reduce((sum, current) => {
+            sum += current[i]            
+            return sum
+        }, 0)
+        let sumOfRegion = 0
+        for (let j=0; j<9; j++){
+            sumOfRegion += board[Math.floor(j/3)+(Math.floor(i/3))*3][j%3+3*(i%3)]
+        }
+        if (sumOfRow != 45 || sumOfCol != 45 || sumOfRegion != 45) {
         return "Try again!"
         }
     }
+    return "Finished!"
 }
 
 console.log(doneOrNot([[5, 3, 4, 6, 7, 8, 9, 1, 2], 
