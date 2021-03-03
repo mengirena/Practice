@@ -11,6 +11,7 @@ solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20
 // returns "-6,-3-1,3-5,7-11,14,15,17-20"
 */
 
+//My solution
 function solution(list){
     let str = "";
     let flag1 = selfDiff(list);
@@ -52,7 +53,38 @@ function selfDiff(list){
     }
     return result
 }
-//solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20])
-console.log(solution([-60,-58,-57,-56,-55,-54,-53,-50]))
-//'-77,-74,-73,-70,-67,-66,-63,-60,-58--53,-50,-47,-45,-43--41,-39,-37--35,-32,-29,-27,-25,-24'
-//'-77,-74,-73,-70,-67,-66,-63,-60,-58--54,-53,-50,-47,-45,-43--41,-39,-37--35,-32,-29,-27,-25,-24'
+
+// Other's best practice
+function solution(individualIntegers) {
+    console.log("solution")
+    return individualIntegers
+      .reduce((ranges, number) => {
+        console.log("splitIntoRanges")
+        console.log("ranges", ranges)//[]
+        console.log("number", number)//6
+        if (!ranges.length) {
+          ranges.push([number]);
+          return ranges;
+        }
+        
+        var lastRange = ranges[ranges.length - 1];//undefined
+        console.log("lastRange",lastRange)
+        var lastNumber = lastRange[lastRange.length - 1];
+        console.log("lastNumber",lastNumber)
+
+        number === lastNumber + 1 ? lastRange.push(number) : ranges.push([number]);
+        return ranges;
+        }
+        , [])
+      .map(convertToRange)
+      .join(",");
+  }
+  
+ 
+  function convertToRange(range) {
+    console.log("convertToRange")
+    return range.length < 3 ? range.join(",") : range[0] + "-" + range[range.length - 1];
+  }
+  
+solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20])
+//console.log(solution([-60,-58,-57,-56,-55,-54,-53,-50]))
