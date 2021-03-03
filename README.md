@@ -32,11 +32,17 @@ for (let i=0; i<n; i++){
 ``` 
 * If the variable `n` used in the `for` loop is changed in the loop, it will affect when the loop will end.
 
-## Challenge 06 -
+## Challenge 06
 
-## Challenge 07 -
+👍
 
-## Challenge 08 - 
+## Challenge 07
+
+👍
+
+## Challenge 08 
+
+* Group the range in a list of list first and then use map to go through the list list of list with list length as a condition to filter the true range out 
 
 ##
 
@@ -50,3 +56,5 @@ for (let i=0; i<n; i++){
 ```
 function(e,obj=newBoard){obj.markChoice(e)}
 ```
+
+## Challenge 09
