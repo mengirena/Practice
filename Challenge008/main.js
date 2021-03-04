@@ -12,6 +12,7 @@ solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20
 */
 
 //My solution
+/*
 function solution(list){
     let str = "";
     let flag1 = selfDiff(list);
@@ -53,8 +54,9 @@ function selfDiff(list){
     }
     return result
 }
-
+*/
 // Other's best practice
+/*
 function solution(individualIntegers) {
     console.log("solution")
     return individualIntegers
@@ -85,6 +87,17 @@ function solution(individualIntegers) {
     console.log("convertToRange")
     return range.length < 3 ? range.join(",") : range[0] + "-" + range[range.length - 1];
   }
+  */
+
+  //other's clever method
+  function solution(list){
+    for(var i = 0; i < list.length; i++){
+       var j = i;
+       while(list[j] - list[j+1] == -1) j++;
+       if(j != i && j-i>1) list.splice(i, j-i+1, list[i] +'-'+list[j]);
+   }
+   return list.join();
+ }
   
 solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20])
 //console.log(solution([-60,-58,-57,-56,-55,-54,-53,-50]))
