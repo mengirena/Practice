@@ -1,17 +1,15 @@
 function arrayToList(array){
-  let rArr = array.reverse()
-  let first = {}
-  let rest = {}
-  for (let i = 0 ; i < rArr.length; i++){
-    rest.value = rArr[i]
-    if (i === 0) rest.rest = null
-    if(i !== rArr.length -1){
-      first.value = ""
-      first.rest = rest
-      rest = first
+  let storeObj = []
+  
+  for (let i = 0 ; i < array.length; i++){
+    storeObj.push({value: array[i],rest:""})
+    if (i === array.length-1){
+      storeObj[i].rest = null
+    }else if(i>0){
+      storeObj[i-1].rest = storeObj[i]
     }
   }
-  return first
+  return fstoreObj[0]
 }
 
 function listToArray(){
