@@ -39,31 +39,50 @@ s2 = "my frie n d Joh n has ma n y ma n y frie n ds n&"
 mix(s1, s2) --> "1:mmmmmm/E:nnnnnn/1:aaaa/1:hhh/2:yyy/2:dd/2:ff/2:ii/2:rr/E:ee/E:ss"
 
 */
-
 function mix(s1, s2) {
     let allStr = s1 + s2
     let returnStr = ""
     let unique = findUniqueLetter(allStr)
-    //console.log(unique)
+    
     let sortedRecord = unique.reduce((sort, letter)=>{
-        if (!(letter in sort)){
-            sort[letter] = [s1.split("").filter(sub=>sub === letter).length, s2.split("").filter(sub=>sub === letter).length]
+        
+        let numOfS1 = s1.split("").filter(sub=>sub === letter).length
+        let numOfS2 = s2.split("").filter(sub=>sub === letter).length
+        if (numOfS1 > numOfS2){
+            sort.push(`${numOfS1}-1-${letter}`)
+        }else if (numOfS2 > numOfS1){
+            sort.push(`${numOfS2}-2-${letter}`)
+        }else{
+            sort.push(`${numOfS1}-3-${letter}`)
         }
         return sort
-    },{})
-    //console.log(sortedRecord)
-    for (let key in sortedRecord){
-        //console.log(key)
-        if (sortedRecord[key][1] > 1 || sortedRecord[key][0] > 1){
-            if (sortedRecord[key][1]>sortedRecord[key][0]){
-                returnStr += `2:${key.repeat(sortedRecord[key][1])}/` 
-            }else if(sortedRecord[key][1]==sortedRecord[key][0]){
-                returnStr += `=:${key.repeat(sortedRecord[key][0])}/`
+    },[])
+    console.log(sortedRecord)
+    sortedRecord.sort((a,b)=>{
+        a = a.split("-")
+        b = b.split("-")
+        return a[2].localeCompare(b[2])})
+    sortedRecord.sort((a,b)=>{
+        a = a.split("-")
+        b = b.split("-")
+        return a[1]-b[1]})
+    sortedRecord.sort((a,b)=>{
+        a = a.split("-")
+        b = b.split("-")
+        return b[0]-a[0]})
+
+    sortedRecord.forEach((item)=>{
+        let record = item.split("-")
+        if (record[0] > 1){
+            if (record[1] == 1){
+                returnStr += `1:${record[2].repeat(record[0])}/`
+            }else if(record[1] == 2){
+                returnStr += `2:${record[2].repeat(record[0])}/`
             }else{
-                returnStr += `1:${key.repeat(sortedRecord[key][0])}/`
+                returnStr += `=:${record[2].repeat(record[0])}/`
             }
         }
-    }
+    })
     return returnStr.slice(0,returnStr.length-1)
 }
 
