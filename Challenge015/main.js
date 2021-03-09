@@ -39,3 +39,45 @@ s2 = "my frie n d Joh n has ma n y ma n y frie n ds n&"
 mix(s1, s2) --> "1:mmmmmm/E:nnnnnn/1:aaaa/1:hhh/2:yyy/2:dd/2:ff/2:ii/2:rr/E:ee/E:ss"
 
 */
+
+function mix(s1, s2) {
+    let allStr = s1 + s2
+    let returnStr = ""
+    let unique = findUniqueLetter(allStr)
+    //console.log(unique)
+    let sortedRecord = unique.reduce((sort, letter)=>{
+        if (!(letter in sort)){
+            sort[letter] = [s1.split("").filter(sub=>sub === letter).length, s2.split("").filter(sub=>sub === letter).length]
+        }
+        return sort
+    },{})
+    //console.log(sortedRecord)
+    for (let key in sortedRecord){
+        //console.log(key)
+        if (sortedRecord[key][1] > 1 || sortedRecord[key][0] > 1){
+            if (sortedRecord[key][1]>sortedRecord[key][0]){
+                returnStr += `2:${key.repeat(sortedRecord[key][1])}/` 
+            }else if(sortedRecord[key][1]==sortedRecord[key][0]){
+                returnStr += `=:${key.repeat(sortedRecord[key][0])}/`
+            }else{
+                returnStr += `1:${key.repeat(sortedRecord[key][0])}/`
+            }
+        }
+    }
+    return returnStr.slice(0,returnStr.length-1)
+}
+
+function hasLowercase(str){
+    let reg = /[a-z]/
+    return reg.test(str)
+}
+
+function findUniqueLetter(str){
+    let unique = []
+    for (let letter of str){
+        if (hasLowercase(letter) && !unique.includes(letter)){
+            unique.push(letter)
+        }
+    }
+    return unique.sort((a,b)=>a.localeCompare(b))
+}
