@@ -49,30 +49,21 @@ function mix(s1, s2) {
         let numOfS1 = s1.split("").filter(sub=>sub === letter).length
         let numOfS2 = s2.split("").filter(sub=>sub === letter).length
         if (numOfS1 > numOfS2){
-            sort.push(`${numOfS1}-1-${letter}`)
+            sort.push([numOfS1,1,letter])
         }else if (numOfS2 > numOfS1){
-            sort.push(`${numOfS2}-2-${letter}`)
+            sort.push([numOfS2,2,letter])
         }else{
-            sort.push(`${numOfS1}-3-${letter}`)
+            sort.push([numOfS1,3,letter])
         }
         return sort
     },[])
     console.log(sortedRecord)
-    sortedRecord.sort((a,b)=>{
-        a = a.split("-")
-        b = b.split("-")
-        return a[2].localeCompare(b[2])})
-    sortedRecord.sort((a,b)=>{
-        a = a.split("-")
-        b = b.split("-")
-        return a[1]-b[1]})
-    sortedRecord.sort((a,b)=>{
-        a = a.split("-")
-        b = b.split("-")
-        return b[0]-a[0]})
+    sortedRecord.sort((a,b)=>a[2].localeCompare(b[2]))
+    sortedRecord.sort((a,b)=>a[1]-b[1])
+    sortedRecord.sort((a,b)=>b[0]-a[0])
 
-    sortedRecord.forEach((item)=>{
-        let record = item.split("-")
+    sortedRecord.forEach((record)=>{
+        
         if (record[0] > 1){
             if (record[1] == 1){
                 returnStr += `1:${record[2].repeat(record[0])}/`
