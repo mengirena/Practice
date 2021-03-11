@@ -41,7 +41,6 @@ mix(s1, s2) --> "1:mmmmmm/E:nnnnnn/1:aaaa/1:hhh/2:yyy/2:dd/2:ff/2:ii/2:rr/E:ee/E
 */
 function mix(s1, s2) {
     let allStr = s1 + s2
-    let returnStr = ""
     let unique = findUniqueLetter(allStr)
     
     let sortedRecord = unique.reduce((sort, letter)=>{
@@ -49,31 +48,28 @@ function mix(s1, s2) {
         let numOfS1 = s1.split("").filter(sub=>sub === letter).length
         let numOfS2 = s2.split("").filter(sub=>sub === letter).length
         if (numOfS1 > numOfS2){
-            sort.push([numOfS1,1,letter])
+            sort[`${numOfS1}-3-${(26 - (letter.charCodeAt(0) - 97)).toString().padStart(2,"0")}`] = [numOfS1,1,letter]
         }else if (numOfS2 > numOfS1){
-            sort.push([numOfS2,2,letter])
+            sort[`${numOfS2}-2-${(26 - (letter.charCodeAt(0) - 97)).toString().padStart(2,"0")}`] = [numOfS2,2,letter]
         }else{
-            sort.push([numOfS1,3,letter])
+            sort[`${numOfS1}-1-${(26 - (letter.charCodeAt(0) - 97)).toString().padStart(2,"0")}`] = [numOfS1,3,letter]
         }
         return sort
-    },[])
-    console.log(sortedRecord)
-    sortedRecord.sort((a,b)=>a[2].localeCompare(b[2]))
-    sortedRecord.sort((a,b)=>a[1]-b[1])
-    sortedRecord.sort((a,b)=>b[0]-a[0])
+    },{})
 
-    sortedRecord.forEach((record)=>{
-        
-        if (record[0] > 1){
-            if (record[1] == 1){
-                returnStr += `1:${record[2].repeat(record[0])}/`
-            }else if(record[1] == 2){
-                returnStr += `2:${record[2].repeat(record[0])}/`
+    let keys = Object.keys(sortedRecord).sort((a,b)=>b.localeCompare(a))
+    
+    let returnStr = keys.reduce((result,key)=>{
+        if (sortedRecord[key][0] > 1){
+            if (sortedRecord[key][1] == 1){
+                result += `1:${sortedRecord[key][2].repeat(sortedRecord[key][0])}/`
+            }else if(sortedRecord[key][1] == 2){
+                result += `2:${sortedRecord[key][2].repeat(sortedRecord[key][0])}/`
             }else{
-                returnStr += `=:${record[2].repeat(record[0])}/`
-            }
-        }
-    })
+                result += `=:${sortedRecord[key][2].repeat(sortedRecord[key][0])}/`
+        }}
+        return result
+    },"")
     return returnStr.slice(0,returnStr.length-1)
 }
 
