@@ -41,8 +41,28 @@ Rules
 */
 
 function fight(robot1, robot2, tactics) {
-    // Who robot will Rock 'em, Sock 'em?!
+  let whoReceiveAttack = (robot1.speed >= robot2.speed) ? 1 : -1
+  let startRound = 0
+  if (robot1.health <= 0 || robot2.health <= 0 || (!robot1.tactics.length && !robot2.tactics.length)){
+    return "gameover"
+  }else{
+    while(robot1.tactics.length || robot2.tactics.length){
+      if(whoReceiveAttack === 1){
+        if(robot2.tactics.length > 0){
+          robot1.health -= tactics[robot2.tactics[0]]
+          robot2.tactics.shift()
+        }
+      }else{
+        if(robot1.tactics.length > 0){
+          robot2.health -= tactics[robot1.tactics[0]]
+          robot1.tactics.shift()
+        }
+      }
+    }
+  }
 }
+
+
 
 robot1 = {"name": "Rocky", "health": 100, "speed": 20, "tactics": ["punch", "punch", "laser", "missile"] };
 robot2 = {"name": "Missile Bob", "health": 100, "speed": 21, "tactics": ["missile", "missile", "missile", "missile"]};
