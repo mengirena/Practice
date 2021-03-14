@@ -16,20 +16,28 @@ function Connect4 (){
   
 Connect4.prototype.play = function (col){
     let i = 5
+    
     while(i>=0){ 
         if(this.board[i][col] === 0){
             this.board[i][col] = this.player
-            console.log(`Player${this.player} has a turn`)
-            
+            checkCategory(i,col)
+            console.log(`Player ${this.player} has a turn`)
             break;
         }
         i--
     }
+    this.player = (this.player === 1) ? 2 : 1
     return `${i}-${col}`
 };
 
-function checkConnection(i,col){
-
+function checkCategory(i,col){
+    let section = [["a","a","a","b","c","c","c"],
+                    ["a","a","a","b","c","c","c"],
+                    ["a","a","a","b","c","c","c"],
+                    ["d","d","d","e","f","f","f"],
+                    ["d","d","d","e","f","f","f"],
+                    ["d","d","d","e","f","f","f"]]
+    return section[i][col]
 }
 /*
 [    [0,1,2,3,4,5,6]
