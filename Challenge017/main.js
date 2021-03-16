@@ -12,15 +12,28 @@ function Connect4 (){
                   [0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0]]
+    this.category = [["a","a","a","b","c","c","c"],
+                    ["a","a","a","b","c","c","c"],
+                    ["a","a","a","b","c","c","c"],
+                    ["d","d","d","e","f","f","f"],
+                    ["d","d","d","e","f","f","f"],
+                    ["d","d","d","e","f","f","f"]]
 };
   
 Connect4.prototype.play = function (col){
     let i = 5
-    
-    while(i>=0){ 
+    let checkType = {
+        a:[1,7,8],
+        b:[-1,6,7,8,1],
+        c:[-1,6,7],
+        d:[-7,-6,1],
+        e:[-1,-8,-7,-6,1],
+        f:[-1,-8,-7]
+    }
+    while(i >= 0){ 
         if(this.board[i][col] === 0){
             this.board[i][col] = this.player
-            checkCategory(i,col)
+            checkType[this.category[i][col]]
             console.log(`Player ${this.player} has a turn`)
             break;
         }
@@ -30,13 +43,19 @@ Connect4.prototype.play = function (col){
     return `${i}-${col}`
 };
 
+Connect4.prototype.right = function (i,col){
+    return this.board[i][col] == this.board[i][col+1] &&
+           this.board[i][col+1] == this.board[i][col+2] &&
+           this.board[i][col+2] == this.board[i][col+3]
+}
+Connect4.prototype.left = function (i,col){
+    return this.board[i][col] == this.board[i][col-1] &&
+           this.board[i][col-1] == this.board[i][col-2] &&
+           this.board[i][col-2] == this.board[i][col-3]
+}
+
 function checkCategory(i,col){
-    let section = [["a","a","a","b","c","c","c"],
-                    ["a","a","a","b","c","c","c"],
-                    ["a","a","a","b","c","c","c"],
-                    ["d","d","d","e","f","f","f"],
-                    ["d","d","d","e","f","f","f"],
-                    ["d","d","d","e","f","f","f"]]
+    
     return section[i][col]
 }
 /*
