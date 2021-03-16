@@ -17,3 +17,25 @@ Your code should be able to compute all of the smallest 5,000 (Clojure: 2000, NA
 
 */
 
+function hamming (n) {
+    let hamToN =[]
+    let countStart = 1
+    while (hamToN.length < n){
+        if (isHam(countStart)) {hamToN.push(countStart)}
+        countStart ++
+    }
+    return hamToN.pop()
+}
+
+function isHam(num){
+    let base = {2:0,3:0,5:0}
+    for (let i = 2; i <= num ; i++){
+        while (num % i === 0){
+            if (!(i in base)){ base[i] = 0}
+            base[i]++
+            num = Math.floor(num/i)
+        }
+    }
+    return (Object.keys(base).length > 3) ? false : true
+}
+
