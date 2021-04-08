@@ -30,6 +30,7 @@ const server = http.createServer((req, res) => {
     req.url === "/" ? "index.html" : req.url
   );
   console.log(req.url);
+  //dynamic filepath
   let extname = path.extname(filePath);
 
   let contentType = "text/html";
