@@ -3,6 +3,7 @@ import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
 import { useState } from "react";
 function App() {
+  //rise state
   const [tasks, setTasks] = useState([
     {
       id: 1,
