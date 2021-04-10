@@ -23,17 +23,24 @@ app.use(express.urlencoded({ exended: true }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.render("index.ejs");
+  db.collection("todos").find().toArray()
+  .then((data) =>{
+    console.log(data)
+    res.render('index.ejs',{quotes:data})
+  });
 });
 
 app.post("/createTodo", (req, res) => {
   db.collection("todos")
     .insertOne({ todo: req.body.todoItem, completed: false })
     .then((result) => {
+      console.log(result)
       console.log("Todo has been added!");
       res.redirect("/")
     });
 });
+
+//app.put()
 
 app.listen(PORT, () => {
   console.log("server is running");
