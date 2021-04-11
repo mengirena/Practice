@@ -4,7 +4,8 @@ const multer = require('multer')
 const app = express()
 const fs = require('fs')
 const mongoClient = require('mongodb').MongoClient
-
+const dotenv = require("dotenv");
+dotenv.config(); 
 
 const dbString = process.env.dbString // need to require dotenv
 let db
