@@ -28,12 +28,6 @@ app.use(express.static('public')) // anything put in the public folder, the serv
 app.use(express.urlencoded({ extended: true })) // to extract data from the form element and add them to the body property in the request object
 app.use(express.json()) // teaches our server to read JSON
 
-
-
-
-
-
-
 //get route takes the path and a callback to react
 app.get("/", (req, res) => {
   db.collection("todos").find().toArray() //find all the documents in the collection and turn them into an array, returning a promise holding an array of objects
