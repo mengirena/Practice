@@ -1,7 +1,10 @@
 const deleteBtns = document.querySelectorAll('.delete-btn')
+console.log('main')
 
-deleteBtns.forEach(deleteBtn => {
-    deleteBtn.addEventListener('click',()=>{
-        fetch('/')
-    })
+Array.from(deleteBtns).forEach(deleteBtn => {
+    deleteBtn.addEventListener('click',deleteTodo)
 })
+
+function deleteTodo(){
+    alert('clicked')
+}

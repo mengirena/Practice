@@ -10,13 +10,16 @@
     <h1>Todos</h1>
     <ul>
     <% for (let i = 0; i < quotes.length; i++){ %>
-      <li> <%= quotes[i].todo %> <button class="delete-btn" id=<%= quotes[i]._id %>>Delete</button> </li>
+      <li> 
+        <span> <%= quotes[i].todo %></span>
+        <button class="delete-btn"> Delete </button>
+      </li>
     <% } %>
   </ul>
     <form action="/createTodo" method="POST">
       <input type="text" placeholder="Enter Task" name="todoItem"/>
       <input type="submit" />
     </form>
-    <script src="/public/main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
