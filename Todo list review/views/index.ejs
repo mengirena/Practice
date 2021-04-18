@@ -5,16 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <h1>Todos</h1>
     <ul>
     <% for (let i = 0; i < quotes.length; i++){ %>
-      <li> 
-        <span> <%= quotes[i].todo %></span>
+      <li class='todoItem'> 
+        <% if (quotes[i].completed) {%>
+          <span class="completed"><%= quotes[i].todo %></span>
+        <% }else{ %>
+          <span><%= quotes[i].todo %></span>
+        <% } %>
+        
         <button class="delete-btn"> Delete </button>
       </li>
     <% } %>
+    <h2>You still need to finish <%=left%> tasks! </h2>
   </ul>
     <form action="/createTodo" method="POST">
       <input type="text" placeholder="Enter Task" name="todoItem"/>

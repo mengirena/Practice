@@ -2,14 +2,14 @@ const express = require("express"); // importing express
 const app = express();
 const MongoClient = require("mongodb").MongoClient;// Connect to my database with MongoClient
 const PORT = 2120;
+require('dotenv').config()
 
 //Declare variables for my database
 // db:
 // dbConnectionStr
 // dbName 
 let db,
-  dbConnectionStr =
-    "mongodb+srv://demo:demo123@cluster0.ubkgf.mongodb.net/todo?retryWrites=true&w=majority",
+  dbConnectionStr = process.env.DB_STR,
   dbName = "todo"; 
 
 //Use MongoClient to connect to the database. MongoClient.connect(string used to connect to my database, Object)
@@ -29,11 +29,20 @@ app.use(express.urlencoded({ extended: true })) // to extract data from the form
 app.use(express.json()) // teaches our server to read JSON
 
 //get route takes the path and a callback to react
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+  const todoItems = await db.collection('todos').find().toArray()
+  const itemsLeft = await db.collection('todos').countDocuments({completed: false})
+  res.render('index.ejs',{quotes:todoItems, left:itemsLeft})
+
+/* promise nested - not a good way
   db.collection("todos").find().toArray() //find all the documents in the collection and turn them into an array, returning a promise holding an array of objects
   .then((data) =>{
-    res.render('index.ejs',{quotes:data}) // passing the array of documents to ejs
+    db.collection("todos").countDocuments({completed: false})
+    .then(itemsleft =>{
+      res.render('index.ejs',{quotes:data, left: itemsleft}) // passing the array of documents to ejs
+    })
   });
+*/
 });
 
 //post data to my database. A callback function will react on the firing of this route
@@ -48,11 +57,39 @@ app.post("/createTodo", (req, res) => {
     });
 });
 
-app.put("/todo", (req,res)=>{
-  console.log('req',req)
-  console.log(req.body)
+app.put("/markComplete", (req,res)=>{
+  db.collection('todos').updateOne({todo: req.body.rainbowUnicorn},{
+    $set: {
+      completed: true
+    }
+  })
+  .then(result => {
+    console.log('marked completed')
+    res.json('marked complete')
+  })
 })
 
-app.listen(PORT, () => {
+app.put("/undo", (req,res)=>{
+  db.collection('todos').updateOne({todo: req.body.rainbowUnicorn},{
+    $set: {
+      completed: false
+    }
+  })
+  .then(result => {
+    console.log('undo')
+    res.json('undo')
+  })
+})
+
+
+app.delete("/deleteTodo", (req,res)=>{
+  db.collection('todos').deleteOne({todo:req.body.rainbowUnicorn})
+  .then(result => {
+    console.log('deleted todo')
+    res.json("Delete todo") //res.redirect("/")
+  })
+})
+
+app.listen(process.env.PORT || PORT, () => {// respond to the fetch request
   console.log("server is running");
 });
