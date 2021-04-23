@@ -26,3 +26,10 @@ function spinWords(string){
         return [...accumulator, (word.length >= 5) ? word.split("").reverse().join("") : word] 
     },[]).join(" ")   
 }
+
+//other's method
+function spinWords(words){
+    return words.split(' ').map(function (word) {
+      return (word.length > 4) ? word.split('').reverse().join('') : word;
+    }).join(' ');
+  }
