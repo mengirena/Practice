@@ -21,3 +21,8 @@ function disemvowel(str) {
     const vowels = ['a','e','i','o','u','A','E','I','O',"U"]
     return str.split("").filter(el=>!vowels.includes(el)).join("")
 }
+
+//others' method
+function disemvowel(str) {
+    return str.replace(/[aeiou]/gi, '');
+}
