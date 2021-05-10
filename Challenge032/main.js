@@ -28,32 +28,72 @@ ALGORITHMSARRAYS
 3. stitch the rows together
 */
 
-function rotate(arr){
-    let nArr = [] 
-    for (let n = 0 ; n < arr[0].length ; n ++){nArr.push([])}
-    for (let i = 0 ; i < arr.length; i++){
-        let k = 0
-        for (let j = arr[0].length-1; j >= 0 ; j--){
-            nArr[k][i] = arr[i][j]
-            k++
-        }
-    }
-    return nArr
+// function rotate(arr){
+//     let nArr = [] 
+//     for (let n = 0 ; n < arr[0].length ; n ++){nArr.push([])}
+//     for (let i = 0 ; i < arr.length; i++){
+//         let k = 0
+//         for (let j = arr[0].length-1; j >= 0 ; j--){
+//             nArr[k][i] = arr[i][j]
+//             k++
+//         }
+//     }
+//     return nArr
+// }
+
+/*
+1. peel off from top, right, bottom, left, create function for each peeling
+2. contcat together until there's no element left
+*/
+function toptop(array){
+    if(array.length == 0) return []
+    return array.shift()
+}
+
+function right(array){
+    if(array.length == 0) return []
+    let returnArr=[]
+    array.forEach((row) => {
+        returnArr.push(row.pop())
+    })
+    return returnArr
+}
+
+function bottom(array){
+    if(array.length == 0) return []
+    return array.pop().reverse()
+}
+
+function left(array){
+    if(array.length == 0) return []
+    let returnArr=[]
+    array.forEach((row) => {
+        returnArr.push(row.shift())
+    })
+    return returnArr.reverse()
 }
 
 snail = function(array) {
-    if (array[0].length === 0 ) return []
-    let finalArray  = array.shift()
-    console.log(finalArray)
-    console.log(array)
-    while (array.length !== 0 ){
-        console.log('before rotate', array)
-        rotatedArray = rotate(array)
-        console.log('after rotate',rotatedArray)
-        finalArray.concat(rotatedArray.shift())
-        console.log(finalArray)
-        array = rotatedArray
-        console.log('array for next', array)
+    let finalArray  = []
+    while (array.length > 0){
+        finalArray = finalArray.concat(toptop(array))
+                                .concat(right(array))
+                                .concat(bottom(array))
+                                .concat(left(array))
     }
     return finalArray
 }
+
+let array = [[1,2,3],
+         [4,5,6],
+         [7,8,9]]
+//other's method
+function snail(array) {
+    var vector = [];
+    while (array.length) {
+      vector.push(...array.shift());
+      array.map(row => vector.push(row.pop()));
+      array.reverse().map(row => row.reverse());
+    }
+    return vector;
+  }
