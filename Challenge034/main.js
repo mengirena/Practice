@@ -50,26 +50,33 @@ function queueTime(customers, n) {
     let total = 0
     console.log(processing.filter(ele => ele == 0).length)
 
-    for (let i = 0; i < 50; i ++){
-    //while (processing.filter(ele => ele == 0).length !== n){
-        let time = Math.min(...processing)
+    //for (let i = 0; i < 100; i ++){
+    while (processing.filter(ele => ele <= 0).length < slots){
+        let time = (processing.filter(ele => ele >0).length) ? Math.min(...processing.filter(ele => ele >0)) : 0 
         console.log("time", time)
         processing = processing.map(ele => {
-            let nextCustomer = customers.shift()
-            return ((ele-time) == 0) ? (nextCustomer) ? nextCustomer : 0 : ele-time
+            console.log('customers',customers)
+            return ((ele-time) == 0) ? ((customers[0]) ? customers.shift() : 0 ): ele-time
         })
         console.log("round",processing)
         total += time
-        console.log(processing.filter(ele => ele == 0).length)
+        console.log('filter',processing.filter(ele => ele <= 0).length)
     }
     return total
 }
 
-console.log(queueTime([1,2,3,4], 1))
-console.log(queueTime([2,2,3,3,4,4], 2))
-console.log(queueTime([1,2,3,4,5], 100))
-const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+console.log('queue', queueTime([6,5,44,44,17,19,15,5,23,46,37,12,45,46,23,47,30,43], 5))
+// console.log('queue', queueTime([2,2,3,3,4,4], 2))
+// console.log('queue', queueTime([1,2,3,4,5], 100))
 
-const result = words.filter(word => word.length > 6);
 
-console.log(result);
+//others' method
+//add the customer to the earliest finish till
+function queueTime(customers, n) {
+    var w = new Array(n).fill(0);
+    for (let t of customers) {
+      let idx = w.indexOf(Math.min(...w));
+      w[idx] += t;
+    }
+    return Math.max(...w);
+  }
