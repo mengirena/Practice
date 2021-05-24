@@ -30,8 +30,7 @@ example:
 2341 => 2431 => 2413
 56897 => 56987 => 56978 
 7385 => 7835 x
-
-
+7388776321 => 
 4567810 => 4568710 => 4568
 
 compare each digit with the digit next to it starting from the 0th place
