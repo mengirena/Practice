@@ -30,7 +30,7 @@ html, body {
 .bottom-banner{
     height:50%;
     width:100%;
-    background: black;
+    background: gray;
     border: soid 10px greenyellow;
     border-bottom-left-radius: 63px;
     border-bottom-right-radius: 63px;
