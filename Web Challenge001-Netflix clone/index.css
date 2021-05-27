@@ -1,0 +1,48 @@
+*{
+    box-sizing:border-box;
+    font-size:62.5%;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.poster{
+    width: 423px;
+    height: 463px;
+    margin: 10px;
+    background: url("https://occ-0-299-300.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABfJbgrpkRkk1_kUi8lhC1f9xRPF-_NbjspGirLBCyKypJr8ROdPgrihgF3AbH1p0g8pT_9VqCDmUMSDKyEUQzGNPoFM2.jpg") center top -80px;
+    border-radius: 63px;
+}
+
+.top-banner{
+    height:50%;
+    width: 100%;
+    display: flex;
+    align-items:flex-end;    
+    justify-content: center;
+    border: soid 10px blue;
+    
+}
+
+.bottom-banner{
+    height:50%;
+    width:100%;
+    background: black;
+    border: soid 10px greenyellow;
+    border-bottom-left-radius: 63px;
+    border-bottom-right-radius: 63px;
+}
+
+.red-circle{
+    width: 20px;
+    background-color: red;
+    border-radius:10px; 
+}
+
+h1{
+    color: white;
+    font-size: 6rem;
+}
