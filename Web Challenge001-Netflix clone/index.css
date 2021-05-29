@@ -23,15 +23,12 @@ html, body {
     display: flex;
     align-items:flex-end;    
     justify-content: center;
-    border: soid 10px blue;
-    
 }
 
 .bottom-banner{
     height:50%;
     width:100%;
     background: gray;
-    border: soid 10px greenyellow;
     border-bottom-left-radius: 63px;
     border-bottom-right-radius: 63px;
 }
@@ -47,12 +44,30 @@ html, body {
     height: 40%;
     display: flex;
     padding: 6% 4%;
-
+}
+  
+svg{
+    fill: white;
 }
 
-svg{
-    display: inline-block;
-    fill: white;
+svg:hover{
+    fill: black;
+    background-color: white;
+    border: 1px solid white;
+    border-radius:20px; 
+    padding: 0;
+}
+
+.icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:10%;
+    height: 93%;
+    margin: 0 2%;
+    background-color: black;
+    border: 2px solid white;
+    border-radius:20px; 
 }
 
 h1{

@@ -11,7 +11,8 @@ This challenge is to make a clone of Netflix movie card.
 ## Lesson learned
 
 ### How to use SVG
-* svg will be treated like an image if you put it as a source of the image tag
+* SVG will be treated like an image if it is placed as a source of the image tag
+* Inline SVG can allow the use of `fill` in CSS.
 
 
 ### Difference between `:hover` `:focus` and `:active` pseudo-class
