@@ -34,9 +34,11 @@ html, body {
 }
 
 .red-circle{
-    width: 20px;
+    display: inline-block;
+    width: 4.8%;
     background-color: red;
-    border-radius:10px; 
+    border: 1px solid white;
+    border-radius:8px; 
 }
 
 .control-panel{
@@ -45,7 +47,23 @@ html, body {
     display: flex;
     padding: 6% 4%;
 }
-  
+
+.icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:10%;
+    height: 93%;
+    margin: 0 2%;
+    background-color: black;
+    border: 1px solid white;
+    border-radius:20px; 
+}
+
+.icons:hover{
+    background-color: white;
+}
+
 svg{
     fill: white;
 }
@@ -58,17 +76,17 @@ svg:hover{
     padding: 0;
 }
 
-.icons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:10%;
-    height: 93%;
-    margin: 0 2%;
-    background-color: black;
-    border: 2px solid white;
-    border-radius:20px; 
+.drop-down{
+    margin: 0 0 0 30%;
 }
+
+.movie-type{
+    font-size: 2.5rem;
+    color: white;
+    padding: 0 6%;
+}
+
+
 
 h1{
     color: white;
