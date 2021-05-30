@@ -28,17 +28,21 @@ html, body {
 .bottom-banner{
     height:50%;
     width:100%;
-    background: gray;
+    background: Black;
     border-bottom-left-radius: 63px;
     border-bottom-right-radius: 63px;
 }
 
 .red-circle{
     display: inline-block;
-    width: 4.8%;
+    width: 6%;
     background-color: red;
     border: 1px solid white;
-    border-radius:8px; 
+    border-radius:10px; 
+}
+
+.match{
+    color:rgb(114,208,117);
 }
 
 .control-panel{
@@ -80,13 +84,24 @@ svg:hover{
     margin: 0 0 0 30%;
 }
 
-.movie-type{
-    font-size: 2.5rem;
+.movie-type, .category{
+    font-size: 3rem;
     color: white;
     padding: 0 6%;
 }
 
+.category{
+    margin-top: 3%; 
+}
 
+li{
+   display: inline-block; 
+}
+
+.dot{
+    color:gray;
+    font-size: 3rem;
+}
 
 h1{
     color: white;
