@@ -1,6 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    background:whitesmoke;
 }
 
 /*
@@ -21,3 +22,16 @@ Some extra things to look into:
 */
 
 /* Write your code here 👇 */
+.card{
+  min-width: 350px;
+  width: 360px;
+  padding-top:100%;
+  height:0;
+  margin:100px auto;
+  border: 1px solid gray;
+  background: white; 
+  position:relative;
+
+.top-panel{
+
+}
