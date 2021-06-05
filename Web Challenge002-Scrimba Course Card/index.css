@@ -61,7 +61,8 @@ Some extra things to look into:
 .teacher{
   width:30%;
   aspect-ratio:1/1;
-  background:url("Kevin.png") contain;
+  background: url("Kevin.png") gray;
+  
   float: right;
 }
 
