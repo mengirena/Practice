@@ -37,6 +37,7 @@ Some extra things to look into:
 .top-panel{
   width:100%;
   aspect-ratio:1/0.5;
+  background: no-repeat url("bear.svg");
 }
 
 .bottom-panel{
@@ -61,9 +62,9 @@ Some extra things to look into:
 .teacher{
   width:30%;
   aspect-ratio:1/1;
-  background: url("Kevin.png") gray;
-  
+  background: url("avatar.jpeg") 50%/contain;
   float: right;
+  
 }
 
 .class-type{
