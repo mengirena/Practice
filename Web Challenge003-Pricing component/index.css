@@ -6,10 +6,18 @@
 html, body {
     margin: 0;
     padding: 0;
+    
 }
 
 body {
     font-family: 'Asap', sans-serif;
+    background: no-repeat url("background\ dogie.jpg") 80% bottom/600px auto, hsl(40,100%,53%);
+}
+
+h1{
+    font-family: 'Lobster', cursive, sans-serif;
+    font-size: 3rem;
+    margin: 50px auto 30px auto;
 }
 
 h1,
