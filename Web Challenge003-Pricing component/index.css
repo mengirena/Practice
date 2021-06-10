@@ -31,25 +31,42 @@ h1,
 
 .container {
     display: flex;
-    background: #001d3d;
     margin: 0 auto;
     justify-content: center;
     max-width: 1000px;
+    height: 500px;
 }
 
 .card {
     cursor: pointer;
-    color: white;
-    background-color: #003566;
-    width: 300px;
+    color: hsl(240,100%,20%);
+    background-color: rgba(255,255,255,0.5);
+    border: 1px solid #eee;
+    border-radius: 8px;
+    width: 400px;
+    height:56vh ;
     text-align: center;
     margin: 1em;
-    padding: 1em 0.25em;
-    position: relative;
+    padding: 1em 1em 1em 0.3em;
+    display:flex;
+    flex-direction:column;
+    
 }
 
 .card h2 {
-    margin: 0;
+    
+    margin: 1rem;
+    font-size: 2vw;
+}
+
+ul{
+    margin-top:2rem;
+    height:20vh;
+    overflow:auto;
+}
+
+p{
+    margin-top: 1.5rem;
 }
 
 .card ul li {
@@ -61,29 +78,23 @@ h1,
     padding-bottom: 5em;
 }
 
-.card-cat ul li::marker {
-    content: '🐱'
+.card ul li::marker {
+    content: '🐾'
 }
 
-.card-lion ul li::marker {
-    content: '🦁'
-}
-
-.card-tiger ul li::marker {
-    content: '🐯'
-}
 
 button {
-    font-family: inherit;
-    position: absolute;
-    bottom: 0;
-    right: 20%;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
     padding: 1em 2em;
     border: none;
     font-size: 1rem;
     font-weight: 700;
     margin-bottom: 1em;
-    background-color: #ffd60a;
+    background-color: hsl(240,100%,20%); /*#001d3d*/
+    color: #ccc;
+    border-radius: 5px;
+    align-self:center;
+    
 }
 
 button:hover,
