@@ -5,4 +5,6 @@
 
 ## Lesson learned
 
-###
+### To change the marker for a list in CSS
+
+Use `ul li::marker{ content: "something here"}`
