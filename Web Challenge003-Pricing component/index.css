@@ -41,7 +41,7 @@ h1,
     cursor: pointer;
     color: hsl(240,100%,20%);
     background-color: rgba(255,255,255,0.5);
-    border: 1px solid #eee;
+    /*border: 1px solid #eee;*/
     border-radius: 8px;
     width: 400px;
     height:56vh ;
@@ -50,7 +50,12 @@ h1,
     padding: 1em 1em 1em 0.3em;
     display:flex;
     flex-direction:column;
-    
+    box-shadow: 5px 5px 10px rgba(80,80,80,0.9);
+    transition: box-shadow 0.1s;
+}
+
+.card:hover{
+    box-shadow: 13px 13px 18px rgba(120,120,120,0.4);
 }
 
 .card h2 {
