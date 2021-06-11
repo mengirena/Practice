@@ -14,7 +14,7 @@ Use `ul li::marker{ content: "something here"}`
 
 ### How do we use transition
 
-`transition` can let us decide which property to animate, when the animation should start and how long and how the animation will be. But not all properties can be transitioned. Here are the (properties)[https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties] can be transitioned. 
+`transition` can let us decide which property to animate, when the animation should start and how long and how the animation will be. But not all properties can be transitioned. Here are the [properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties) can be transitioned. 
 We can control the transition by the sub-properties (with default):
 
 - `transition-property: all`
