@@ -5,6 +5,27 @@
 
 ## Lesson learned
 
+### Different ways to export
+
+- Named export
+```
+export const Header = React.createClass({
+
+})
+```
+
+- Default export
+```
+export default React.createClass({
+
+})
+```
+Is equivalent to
+```
+const MyClass = React.createClass({ ... });
+export default MyClass;
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
