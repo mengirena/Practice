@@ -1,27 +1,29 @@
-export default todoData = [
+const todosData = [
     {
         id: 1,
-        item: "Get oat milk",
-        completed: false,
+        text: "Take out the trash",
+        completed: true
     },
     {
         id: 2,
-        item: "Get banana",
-        completed: false,
+        text: "Grocery shopping",
+        completed: false
     },
     {
         id: 3,
-        item: "Get strawberry",
-        completed: true,
+        text: "Clean gecko tank",
+        completed: false
     },
     {
         id: 4,
-        item: "Get pencil",
-        completed: false,
+        text: "Mow lawn",
+        completed: true
     },
     {
         id: 5,
-        item: "Get egg",
-        completed: true,
-    },
+        text: "Catch up on Arrested Development",
+        completed: false
+    }
 ]
+
+export default todosData
