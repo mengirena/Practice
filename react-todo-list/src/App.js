@@ -21,15 +21,18 @@ class App extends React.Component{
       }
       return todo
     })
-    console.log("this.state",this.state)
-    console.log("update",updateState)
     this.setState({todos:updateState}) // don't forget to update to the correct property
   }
   render() {
     console.log(this.state.todos)
+    let allTodos = this.state.todos.map(todo => {
+      return(
+        <Todos key={todo.id} todoItem={todo} handleChange={this.handleChange}/>
+      )
+    })
     return (
        <div>
-         <Todos todoList = {this.state.todos} handleChange={this.handleChange}/> {/*Need to add keys*/}
+         {allTodos}
        </div>
     );
   }
