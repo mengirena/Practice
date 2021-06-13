@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import todoData from './todoData'
+import Todos from './Todos'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  constructor(){
+    super()
+    this.state = {
+      todos: todoData
+    }
+    this.handleChange = this.handleChange.bind(this)
+  }
+  handleChange(id){
+    console.log(id)
+    let updateState = this.state.todos.map(todo =>{
+      if (todo.id === id){
+        return ({
+          ...todo,
+          completed: !todo.completed
+        })
+      }
+      return todo
+    })
+    console.log("this.state",this.state)
+    console.log("update",updateState)
+    this.setState({todos:updateState}) // don't forget to update to the correct property
+  }
+  render() {
+    console.log(this.state.todos)
+    return (
+       <div>
+         <Todos todoList = {this.state.todos} handleChange={this.handleChange}/> {/*Need to add keys*/}
+       </div>
+    );
+  }
 }
 
 export default App;
