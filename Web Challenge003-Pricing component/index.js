@@ -1,6 +1,6 @@
 const cardClick = Array.from(document.querySelectorAll(".card"))
 const planClick = document.querySelector(".plan")
-const cardPrice = document.querySelectorAll(".card p em")
+const cardPrice = Array.from(document.querySelectorAll(".card p em"))
 const purchase = Array.from(document.querySelectorAll("button"))
 let newPrice = [], currentPrice = []
 
@@ -24,6 +24,13 @@ function enlargeTheClicked(){
             document.querySelector(`#${card}`).classList.toggle("defocus")
         }
     })
+    cardPrice.forEach(ele =>{
+        if (ele.style.color != "rgb(255, 102, 170)") {
+            ele.style.color = "#ff66aa"
+        } else {
+            ele.style.color = "rgb(13, 13, 68)"
+        }
+    })
 }
 
 function removeEnlarge(){
@@ -34,6 +41,9 @@ function removeEnlarge(){
         }else{
             document.querySelector(`#${card}`).classList.remove("defocus")
         }
+    })
+    cardPrice.forEach(ele =>{
+        ele.style.color = "rgb(13, 13, 68)"
     })
 }
 
@@ -50,8 +60,4 @@ function rotatePlan(){
             ele.innerHTML = `$${currentPrice[index]}/month`
         })
     }
-}
-
-function onClick(){
-    
 }

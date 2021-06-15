@@ -105,7 +105,7 @@ h1,
 
 .card {
     cursor: pointer;
-    color: hsl(240,100%,20%);
+    color: rgb(13, 13, 68);
     background-color: rgba(255,255,255,0.5);
     /*border: 1px solid #eee;*/
     border-radius: 8px;
@@ -180,5 +180,6 @@ button {
 button:hover,
 button:focus {
     cursor: pointer;
-    background-color: white;
+    background-color: hsl(40,100%,53%);
+    color: black;
 }
