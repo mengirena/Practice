@@ -33,15 +33,52 @@ We can control the transition by the sub-properties (with default):
 
 Use `transform-style: preserve-3D` can preserve element's 3D position
 
-If a `transform` property has a value other than its initial value, a stacking context will be created. The 3D rotational methods are:
-	
-- `rotateX(angle)`
+If a `transform` property has a value other than its initial value, a stacking context will be created. 
 
-- `rotateY(angle)`
+`transform` can let us do:
 
-- `rotateZ(angle)`
+- Matrix transformation
 
-- `rotate3d(x,y,z,angle)`
-	
+- Perspective
+
+- Rotation
+
+    - `rotateX(angle)`
+
+    - `rotateY(angle)`
+
+    - `rotateZ(angle)`
+
+    - `rotate3d(x,y,z,angle)`
+
+- Scaling (Resizing)
+
+    - `scaleX(number)`
+
+    - `scaleY(number)`
+
+- Skewing (distortion)
+
+- Translation (moving)
+
+    - `translateX(length-percentage)`
+
+    - `translateY(length-percentage)`
+
+    - `translate(length-percentage, length-percentage?)`
+
+    - `translate3d(length-percentage, length-percentage, length)`
+
+    - `translateZ(length)`
+
+The stacking context 
+
+
 
 `backgace-visibility` is often used with `transform: rotateY(180deg);` and this can make the back of the element be visible or hidden.  
+
+### Get the first child from NodeList
+
+Use `firstElementChild`
+
+To add class to the nodeList, use `classList.add(classname)` 
