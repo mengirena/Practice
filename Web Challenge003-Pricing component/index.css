@@ -59,9 +59,6 @@ h1,
     transform-style: preserve-3d;
 }
 
-.plan:hover .plan-inner{
-    transform:rotateY(-180deg);
-} 
 
 
 .flip-front,.flip-back{
