@@ -48,7 +48,6 @@ function removeEnlarge(){
 }
 
 function rotatePlan(){
-    console.log(this.firstElementChild.style.transform)
     if(this.firstElementChild.style.transform === ""){
         this.firstElementChild.style.transform = "rotateY(-180deg)"
         cardPrice.forEach((ele, index)=>{
