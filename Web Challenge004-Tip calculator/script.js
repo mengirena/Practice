@@ -17,22 +17,18 @@ function changeTotal(){
     const tip = Number(tipValue.value)
     document.querySelector("#total").innerHTML = roundWithZero(bill*(1+tip/100))
 
-    splitBox.style.height = "22%"
+    splitBox.style.height = "30%"
     splitValue.value && updateSplit()
 }
 
 function updateSplit(){
-    splitted = total/splitValue.value
-    document.querySelector("#split").innerHTML = `<strong>$${splitted}</strong>`
+    splitted = total/(Number(splitValue.value)+1)
+    document.querySelector("#split").innerHTML = `<strong>${addDigit(splitted)}</strong>`
 }
 
 function roundNum(){
-    console.log("clicked round")
     if (splitted){
-        console.log("in")
         document.querySelector("#split").innerHTML = `<strong>${roundWithZero(splitted)}</strong>`
-        console.log(roundBtn)
-        console.log(roundBtn.classList)
         roundBtn.classList.toggle("clicked")
         roundBtn.classList.toggle("float")
     }
@@ -40,10 +36,10 @@ function roundNum(){
 
 function roundWithZero(num){
     total = Math.round(num*100)/100
-    const temp = total.toString().split(".")
-    return `${(temp.length == 1) ? `$${total}.00` : (temp[1].length === 1) ? `$${total}0` : `$${total}`}`
+    return addDigit(total)
 }
 
 function addDigit(num){
-    
+    const temp = num.toString().split(".")
+    return `${(temp.length == 1) ? `$${num}.00` : (temp[1].length === 1) ? `$${num}0` : `$${num}`}`
 }
