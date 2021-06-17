@@ -17,18 +17,23 @@ function changeTotal(){
     const tip = Number(tipValue.value)
     document.querySelector("#total").innerHTML = roundWithZero(bill*(1+tip/100))
 
-    splitBox.style.height = "30%"
+    splitBox.style.height = "33%"
     splitValue.value && updateSplit()
 }
 
 function updateSplit(){
+    console.log("update",splitValue.value)
     splitted = total/(Number(splitValue.value)+1)
     document.querySelector("#split").innerHTML = `<strong>${addDigit(splitted)}</strong>`
 }
 
 function roundNum(){
-    if (splitted){
+    if (splitted && splitValue.value && Array.from(roundBtn.classList).includes("float")){
         document.querySelector("#split").innerHTML = `<strong>${roundWithZero(splitted)}</strong>`
+        roundBtn.classList.toggle("clicked")
+        roundBtn.classList.toggle("float")
+    }else if(splitted && splitValue.value && Array.from(roundBtn.classList).includes("clicked")){
+        document.querySelector("#split").innerHTML = `<strong>$${splitted}</strong>`
         roundBtn.classList.toggle("clicked")
         roundBtn.classList.toggle("float")
     }
