@@ -1,7 +1,7 @@
 body {
 	background-color: hsl(49, 56%, 72%);
 	color: #fff;
-	margin: 150px auto;
+	margin: auto;
 	display: flex;
 	font-family: 'Poppins', sans-serif;
 	justify-content: center;
@@ -50,7 +50,11 @@ h1 {
 
 .pop_up{
 	height:0px;
-	transition: height .5s ease-in-out .5s;
+	-webkit-transition: height .5s ease .5s;
+	-moz-transition: height .5s ease .5s;
+	-ms-transition: height .5s ease .5s;
+	-o-transition: height .5s ease .5s;
+	transition: height .5s ease .5s;
 	overflow:hidden;
 	margin-top: 2%;
 }
@@ -83,7 +87,8 @@ p{
 	cursor: pointer;
 	border-radius: 5px;
 	border:0;
-	color: rgb(140, 140, 140)
+	color: rgb(140, 140, 140);
+    background: rgb(230, 230, 230);
 }
 
 .clicked{
@@ -92,7 +97,6 @@ p{
 }
 
 .float{
-	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-	border-radius: 5px;
-
+	box-shadow: 3px -3px 6px rgba(0,0,0,0.16), 3px -3px 6px rgba(0,0,0,0.23);
+	border-radius: 10px;
 }
