@@ -78,3 +78,18 @@ p{
 	display:flex;
 	justify-content: space-between;
 }
+
+#round{
+	cursor: pointer;
+	border-radius: 5px;
+	border:0;
+}
+
+.clicked{
+	box-shadow: inset 0 0px 6px rgba(0,0,0,0.16), inset 0 0px 6px rgba(0,0,0,0.23);
+}
+
+.float{
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+}
