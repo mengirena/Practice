@@ -1,12 +1,12 @@
 body {
 	background-color: hsl(49, 56%, 72%);
 	color: #fff;
-	margin: auto;
+	margin: 150px auto;
 	display: flex;
 	font-family: 'Poppins', sans-serif;
 	justify-content: center;
 	align-items: center;
-	min-height: 700px;
+	height:500px;
 	max-width: 360px;
 	min-width: 320px;
 	width:40vw;
@@ -83,6 +83,7 @@ p{
 	cursor: pointer;
 	border-radius: 5px;
 	border:0;
+	color: rgb(140, 140, 140)
 }
 
 .clicked{
@@ -91,5 +92,5 @@ p{
 
 .float{
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-
+	
 }
