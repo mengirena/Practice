@@ -16,13 +16,11 @@ function changeTotal(){
     const bill = Number(billValue.value)
     const tip = Number(tipValue.value)
     document.querySelector("#total").innerHTML = roundWithZero(bill*(1+tip/100))
-
-    splitBox.style.height = "33%"
+    splitBox.style.height = "40%"
     splitValue.value && updateSplit()
 }
 
 function updateSplit(){
-    console.log("update",splitValue.value)
     splitted = total/(Number(splitValue.value)+1)
     document.querySelector("#split").innerHTML = `<strong>${addDigit(splitted)}</strong>`
 }
