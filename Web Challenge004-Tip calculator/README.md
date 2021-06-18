@@ -1,6 +1,14 @@
-# Tip calculator
+# Tip and Split
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8dd3688a-8f84-4c53-8702-a2cd7fcbe574/deploy-status)](https://tipnsplit.netlify.app)
+
+👆🏽 click to check the live page
+
+This is a tip calculator. You can also use it to calculate the amount to split with your friends.
 
 ## Demo
+
+<img src="https://user-images.githubusercontent.com/51871665/122467437-5b98eb80-cf6f-11eb-9075-2d020f8e09bd.gif" width="300px">
 
 ## How it's built
 
