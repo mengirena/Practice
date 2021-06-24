@@ -1,0 +1,36 @@
+<html>
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="calculator_container">
+            <h1>Total & Split</h1>
+            <div class="form_control">
+                <label for="bill">Bill (in $)</label>
+                <input type="number" id="bill_value" placeholder="0"/>
+            </div>
+            
+            <div class="form_control">
+                <label for="tip">Tip %</label>
+                <input type="number" id="tip_value" placeholder="0" />
+            </div>
+            
+            <footer>
+                <div class="result">
+                    <span>Total:</span> <strong id="total">$0</strong>
+                </div>
+            </footer>
+            
+            <div class="pop_up">
+                <hr></hr>
+                <p>Need to split with
+                <input type="number" id="head_count" placerholder="0" min=0> people</p>
+                <p>Each person:</p>
+                <p id="split"></p>
+                <button id="round" class="float">Round to cloest cent</button>
+            </div>
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+</html>
