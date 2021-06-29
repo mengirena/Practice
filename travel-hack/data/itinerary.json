@@ -15,6 +15,28 @@
                 "destination": "LHR",
                 "origin": "OSL"
             }
+        ],
+        "accomadation":[
+            {
+                "checkInTime": "18:45",
+                "checkOutTime": "21:20",
+                "date": "Jul 9",
+                "address": "LHR",
+                "name": "OSL grand hotel",
+                "phone":"123",
+                "confirmation": "ty123123123"
+            }
+        ],
+        "activities":[
+            {
+                "name":"Palace Grill",
+                "address":"asdf",
+                "date": "Jul 2",
+                "time": "19:00",
+                "type": "restaurant",
+                "confirmation": "rt123"
+
+            }
         ]
     }
 }
