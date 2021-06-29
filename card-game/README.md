@@ -16,4 +16,26 @@ This is a tip calculator. You can also use it to calculate the amount to split w
 
 ## Lesson learnt
 
-### CSS Data Attribute
+### Use data attribute as content for CSS
+
+We can move small data to data attribute and then later make it content for CSS and style it. By using `attr(attribute-name)`, we can retrive the value from specified attribute. Using `[attribute-name]` as the CSS selector allow us to select the specific element.
+
+```html
+    <p data-text="Hello">World</p>
+```
+
+```css
+    [data-text]::before{
+        content: attr(data-text) " ",
+    }
+```
+The result from above code will generate "Hello World".
+
+**Note:** `attr()` can only be used in different properties but only in `content` property is robust. The other usages are still under experiment.   
+
+
+Benefit of using data attribute as content for CSS:
+
+1. Reduce the HTML code a lot
+
+2. Allow dynamically change easily via JavaScript
