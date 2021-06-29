@@ -1,0 +1,20 @@
+{
+    "itinerary":{
+        "flights":[
+            {
+                "startTime": "06:50",
+                "arrivalTime": "09:20",
+                "date": "Jul 2",
+                "destination": "OSL",
+                "origin": "LHR"
+            },
+            {
+                "startTime": "18:45",
+                "arrivalTime": "21:20",
+                "date": "Jul 9",
+                "destination": "LHR",
+                "origin": "OSL"
+            }
+        ]
+    }
+}
