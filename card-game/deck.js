@@ -14,7 +14,10 @@ const VALUES = [
   "Q",
   "K"
 ]
-
+// A deck class includes a fresh generated cards in order
+// Can get card count 
+// Can shuffle the cards to be random
+// Can pop the first card out or push new card to the deck
 export default class Deck {
   constructor(cards = freshDeck()) {
     this.cards = cards
@@ -41,7 +44,11 @@ export default class Deck {
     }
   }
 }
-
+ 
+//create card class
+//Each card has suit and value
+//Can get card color based on its suit
+//Can generate HTML - dynamically changing cards by assigning differernt value and suit to its data attribute
 class Card {
   constructor(suit, value) {
     this.suit = suit
@@ -61,6 +68,7 @@ class Card {
   }
 }
 
+//Generate an array of cards of all suit and values
 function freshDeck() {
   return SUITS.flatMap(suit => {
     return VALUES.map(value => {
