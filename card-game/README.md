@@ -4,7 +4,7 @@
 
 👆🏽 click to check the live page
 
-This is a tip calculator. You can also use it to calculate the amount to split with your friends.
+This is a card game. You can play with the computer. Both decks will flip one card after clicking. Comparing the flipped card, the one with higher value and suit will get two flipped cards. The winner will get the whole deck cards.
 
 ## Demo
 
