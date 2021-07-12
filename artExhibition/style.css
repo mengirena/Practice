@@ -1,0 +1,17 @@
+svg {
+    height:500px;
+    width:500px;
+  }
+  
+polygon {
+    stroke:black;
+    cursor:pointer;
+}
+  
+polygon.down {
+    fill:yellow;
+}
+  
+polygon.up {
+    fill:red;
+}
