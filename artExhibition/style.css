@@ -1,6 +1,7 @@
-svg {
+/* svg {
     height:500px;
     width:500px;
+    border: 1px solid black;
   }
   
 polygon {
@@ -14,4 +15,12 @@ polygon.down {
   
 polygon.up {
     fill:red;
+} */
+
+/* body{
+    background:no-repeat url("https://res.cloudinary.com/dlw84bbw6/image/upload/v1626294834/Host/artExhibitionLobby-codepen.jpg") top left /cover
+} */
+
+#rect{
+    cursor:pointer;
 }
