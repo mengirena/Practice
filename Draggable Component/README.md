@@ -18,7 +18,7 @@ It returns a DOMRect object. It's the smallest rectangle containing the entire e
     - `drag`: event fires on the draggable target
     - `dragstart`: fires when drag starts on the draggable target
     - `dragend`: fires when drag ends on the draggable target
-    - `dragover`: fires on the drop target. Use `event.preventfault()` to prevent default to allow drop
+    - `dragover`: fires on the drop target. Use `event.preventdefault()` to prevent default to allow drop
     - `dragenter`: fires when the draggable item enters the target
     - `dragleave`: fires when the draggable leaves the target
-    - `drop`: event fires on the drop target. Use `event.preventfault()` to prevent default action
+    - `drop`: event fires on the drop target. Use `event.preventdefault()` to prevent default action
