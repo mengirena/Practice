@@ -1,0 +1,12 @@
+
+body {
+    background: #444;
+    /* height: 500vh; */
+}
+
+canvas {
+    left: 50%;
+    top: 50%;
+    max-height: 100vh;
+    max-width: 100vw;
+}
