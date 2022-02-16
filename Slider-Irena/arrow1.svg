@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44" height="44" viewBox="0 0 44 44">
+  <defs>
+    <clipPath id="clip-arrow_1">
+      <rect width="44" height="44"/>
+    </clipPath>
+  </defs>
+  <g id="arrow_1" data-name="arrow – 1" clip-path="url(#clip-arrow_1)">
+    <g id="Group_8690" data-name="Group 8690">
+      <rect id="Rectangle_7752" data-name="Rectangle 7752" width="44" height="44" rx="5" opacity="0.167"/>
+      <path id="Polygon_15" data-name="Polygon 15" d="M11,0,22,19H0Z" transform="translate(34 11) rotate(90)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
